@@ -211,10 +211,15 @@ def player_stats(player_name)
     team_stats[:players].each do |inner_stats|
       inner_stats.each do |stat_name, value|
         if player_name == value
+
            #inner_stats.delete(:player_name)
             return inner_stats
         end
         
+
+         #  ps = {stat_name => value}
+       # end
+
         #binding.pry
       end
      # binding.pry
@@ -222,6 +227,7 @@ def player_stats(player_name)
     #binding.pry
   end
   ps
+
   #binding.pry
 end
 
@@ -241,5 +247,25 @@ def big_shoe_rebounds
   array 
   rb
   #binding.pry
+
+  #binding.pry
+
 end
 
+def most_points_scored
+  array = []
+  rb = nil
+  game_hash.each do |h_a,team_stats|
+    team_stats[:players].each do |inner_stats|
+      array << inner_stats[:points]
+      if inner_stats[:points] == array.max
+        rb = inner_stats[:player_name]
+        
+      end
+    #binding.pry
+    end
+  end
+  array 
+  puts rb
+  binding.pry
+end
